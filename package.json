@@ -1,0 +1,28 @@
+{
+  "name": "hack-test",
+  "version": "1.0.0",
+  "description": "Dig through the source code to figure out the password",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OinkIguana/hack-test.git"
+  },
+  "keywords": [
+    "code",
+    "programming",
+    "hack",
+    "test",
+    "puzzle",
+    "password",
+    "game"
+  ],
+  "author": "Cameron Eldridge",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OinkIguana/hack-test/issues"
+  },
+  "homepage": "https://github.com/OinkIguana/hack-test#readme"
+}
