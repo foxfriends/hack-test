@@ -4,7 +4,7 @@
   "description": "Dig through the source code to figure out the password",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "http-server public_html"
   },
   "repository": {
     "type": "git",
@@ -24,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/OinkIguana/hack-test/issues"
   },
-  "homepage": "https://github.com/OinkIguana/hack-test#readme"
+  "homepage": "https://github.com/OinkIguana/hack-test#readme",
+  "devDependencies": {
+    "http-server": "^0.9.0"
+  }
 }
