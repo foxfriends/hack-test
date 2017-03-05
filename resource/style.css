@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css?family=Inconsolata');
+
+@keyframes shake {
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-4px) }
+  20%, 40%, 60%, 80% { transform: translateX(4px) }
+}
+
+body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+
+  font-family: 'Inconsolata', monospace;
+  font-size: 28pt;
+  color: #DEDEDE;
+}
+
+input {
+  border: 1px solid #DEDEDE;
+  width: 32em;
+  padding: 6px;
+
+  font-family: 'Inconsolata', monospace;
+  font-size: 28pt;
+  color: #DEDEDE;
+}
+
+span {
+  position: fixed;
+  left: 1pc;
+  bottom: 1pc;
+}
+
+.shake {
+  animation: shake 0.5s linear both;
+  transform: translateX(0);
+}
