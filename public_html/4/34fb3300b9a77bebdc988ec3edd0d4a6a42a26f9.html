@@ -2,19 +2,19 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Level 0</title>
+    <title>Level 4</title>
     <link rel="stylesheet" type="text/css" href="/resource/style.css" />
     <script src="/resource/common.js"></script>
     <script>
     function validate(guess) {
-      const password = 'xyz';
+      const password = '\x46\x69\x73\x68';
       if(guess === password)
-        return completeLevel(1, password);
+        completeLevel(5, password);
     }
     </script>
   </head>
   <body>
     <input type="text" onkeypress="handler.call(this, event)" autofocus autocomplete="off" />
-    <span>0</span>
+    <span>4</span>
   </body>
 </html>
