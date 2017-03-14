@@ -7,12 +7,25 @@
     <meta name="author" content="OinkIguana" />
     <title>Level 11</title>
     <link rel="stylesheet" type="text/css" href="{{ '/resource/style.css' | relative_url }}" />
-    <script src="{{ '/resource/common.js' | relative_url }}"></script>
+    <script src="{{ '/resource/common.js' | relative_url }}" ></script>
     <script>
+    function* makePassword(seq) {
+      const c = (function*() {
+        for(let i = 0; i < 26; i = (i + 1) % 26)
+          yield 0x61 + i;
+      })();
+      for(let i of seq) {
+        while(i --> 0) {
+          const { value : v } = c.next()
+          if(!i) yield v;
+        }
+      }
+    }
+
     function validate(guess) {
-      const password = '';
+      let password = [...makePassword([20, 5, 17, 15, 18, 21, 17, 11, 11, 13])].map(x => String.fromCharCode(x)).join('');
       if(guess === password)
-        {} // return completeLevel(12, password);
+        return completeLevel(12, password);
     }
     </script>
   </head>
