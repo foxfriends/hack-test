@@ -1,0 +1,34 @@
+---
+---
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="OinkIguana" />
+    <title>Level 13</title>
+    <link rel="stylesheet" type="text/css" href="{{ '/resource/style.css' | relative_url }}" />
+    <script src="{{ '/resource/common.js' | relative_url }}"></script>
+    <script>
+    function validate(guess) {
+      const v = document.createElement('CANVAS');
+      const g = v.getContext('2d');
+      const cc = new Image();
+      const loaded = new Promise(cc.addEventListener.bind(cc, 'load'));
+      v.width = v.height = 200;
+      cc.src = 'cc.png';
+      return loaded.then(() => {
+        g.drawImage(cc, 0, 0);
+        const { data : { [156436]: a, [156437]: b, [156438] : c} } = g.getImageData(0, 0, 200, 200);
+        const password = (a << 16 | b << 8 | c).toString(16);
+        if(guess === password)
+          return completeLevel(14, password);
+        else return Promise.reject();
+      });
+    }
+    </script>
+  </head>
+  <body>
+    <input type="text" onkeypress="handler.call(this, event)" autofocus autocomplete="off" />
+    <span>13</span>
+  </body>
+</html>
