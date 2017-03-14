@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="author" content="OinkIguana" />
     <title>Level 3</title>
     <link rel="stylesheet" type="text/css" href="/resource/style.css" />
     <script src="/resource/common.js"></script>
@@ -9,12 +10,13 @@
     function validate(guess) {
       const password = ['first', 'second', 'third'][2];
       if(guess === password)
-        completeLevel(4, password)
+        return completeLevel(4, password);
     }
     </script>
   </head>
   <body>
     <input type="text" onkeypress="handler.call(this, event)" autofocus autocomplete="off" />
+    <q>I have not failed. I've just found 10000 ways that won't work.</q>
     <span>3</span>
   </body>
 </html>

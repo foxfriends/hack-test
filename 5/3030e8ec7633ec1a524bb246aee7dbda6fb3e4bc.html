@@ -2,14 +2,14 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="author" content="OinkIguana" />
     <title>Level 5</title>
     <link rel="stylesheet" type="text/css" href="/resource/style.css" />
     <script src="/resource/common.js"></script>
     <script>
-    function validate(guess) {
-      // const password = '';
-      // if(guess === password)
-      //   completeLevel(6, password);
+    function validate(guess, password) {
+      if(guess === password)
+        return completeLevel(6, password);
     }
     </script>
   </head>
