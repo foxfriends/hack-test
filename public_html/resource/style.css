@@ -34,6 +34,13 @@ span {
   position: fixed;
   left: 1pc;
   bottom: 1pc;
+  content: 'mirage';
+}
+
+q {
+  position: fixed;
+  right: 1pc;
+  bottom: 1pc;
 }
 
 .shake {

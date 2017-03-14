@@ -3,19 +3,22 @@
   <head>
     <meta charset="utf-8">
     <meta name="author" content="OinkIguana" />
-    <title>Level 4</title>
+    <title>Level 6</title>
     <link rel="stylesheet" type="text/css" href="/resource/style.css" />
     <script src="/resource/common.js"></script>
     <script>
+    function calculate(c) {
+      return (c || '') && (String.fromCharCode(c & 0xff) + calculate(c >> 8));
+    }
+    const password = calculate(1818845556);
     function validate(guess) {
-      const password = '\x46\x69\x73\x68';
       if(guess === password)
-        return completeLevel(5, password);
+        return completeLevel(7, password);
     }
     </script>
   </head>
   <body>
     <input type="text" onkeypress="handler.call(this, event)" autofocus autocomplete="off" />
-    <span>4</span>
+    <span>6</span>
   </body>
 </html>
