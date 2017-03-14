@@ -6,13 +6,13 @@
     <meta charset="utf-8">
     <meta name="author" content="OinkIguana" />
     <title>Level 11</title>
-    <link rel="stylesheet" type="text/css" href="/resource/style.css" />
-    <script src="/resource/common.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ '/resource/style.css' | relative_url }}" />
+    <script src="{{ '/resource/common.js' | relative_url }}"></script>
     <script>
     function validate(guess) {
       const password = '';
       if(guess === password)
-        return completeLevel(12, password);
+        {} // return completeLevel(12, password);
     }
     </script>
   </head>

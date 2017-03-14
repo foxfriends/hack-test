@@ -45,7 +45,7 @@ permalink: /404.html
       align-items: center;
       background: #EEEEEE;
     }
-    
+
     a:hover {
       background: #DEDEDE;
     }
@@ -60,9 +60,8 @@ permalink: /404.html
     </p>
     <div>
       <script>
-      for(let key of Object.keys(localStorage)) {
-        const index = key.slice(5);
-        const hash = localStorage[key];
+      for(let index of Object.keys(localStorage).map(x => +x.slice(5)).sort((a, b) => a - b)) {
+        const hash = localStorage[`test-${index}`];
         document.write(`<a href="{{ site.baseurl }}/${index}/${hash}">${index}</a>`)
       }
       </script>

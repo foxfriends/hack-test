@@ -21,9 +21,9 @@ pull request following these guidelines:
 In terms of the code, ensure that it follows the same general structure. i.e:
 *   Implements the `validate(guess)` function
 *   Which returns `completeLevel(0, password)` when complete (I'll fix the
-    number when I add it to the game)
-*   Looks like the other levels (the puzzles should be in the code, not on the
-    page)
+    number when I add it to the game), or false otherwise
+    *   If you use asynchronous actions, you may return a promise that resolves
+        to `completeLevel(0, password)` or rejects instead
 
 Be sure you don't write the password anywhere. I'll figure it out myself, or
 I'll ask you about it if I am really stuck. Once I am sure your level is in good
