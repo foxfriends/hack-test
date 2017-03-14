@@ -1,5 +1,8 @@
 const { handler, completeLevel } = (function() {
   'use strict';
+  const url = window.location.href.split('/').slice(-2);
+  window.localStorage.set(`${test}-${url[0]}`, url[1]);
+
   const libs = Promise.all(
     [...new Set(
       ((document.currentScript.getAttribute('data-libs') || '') + ',sha1')
