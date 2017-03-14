@@ -1,0 +1,71 @@
+---
+permalink: /404.html
+---
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Lost</title>
+    <style>
+    @import url('https://fonts.googleapis.com/css?family=Inconsolata');
+
+    body {
+      margin: 0;
+      width: 100vw;
+      min-height: 80vh;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+
+      font-family: 'Inconsolata', monospace;
+      font-size: 14pt;
+      color: #888;
+    }
+
+    p {
+      width: 1000px;
+    }
+
+    div {
+      display: flex;
+      flex-direction: row;
+      align-content: space-around;
+    }
+
+    a, a:link, a:visited a:active {
+      display: flex;
+      width: 50px;
+      height: 50px;
+      font: 18pt 'Inconsolata',monospace;
+      color: #999;
+      text-decoration: none;
+      justify-content: space-around;
+      align-items: center;
+      background: #EEEEEE;
+    }
+    
+    a:hover {
+      background: #DEDEDE;
+    }
+    </style>
+  </head>
+  <body>
+    <p>
+      It seems you have gotten lost, for this level does not exist. Maybe that
+      means you have finished. Maybe this is just a mistake. Whichever reason,
+      this is not the place you want to be, so you may think of this as a sort
+      of crossroads. It is up to you where you want to go next.
+    </p>
+    <div>
+      <script>
+      for(let key of Object.keys(localStorage)) {
+        const index = key.slice(5);
+        const hash = localStorage[key];
+        document.write(`<a href="{{ site.baseurl }}/${index}/${hash}">${index}</a>`)
+      }
+      </script>
+    </div>
+  </body>
+</html>
