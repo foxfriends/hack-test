@@ -1,7 +1,12 @@
+---
+---
 const { handler, completeLevel } = (function() {
   'use strict';
   const url = window.location.href.split('/').slice(-2);
-  window.localStorage.set(`${test}-${url[0]}`, url[1]);
+  if(url[1].length === 40) {
+    // save progress, only for sha1 hash levels
+    window.localStorage.setItem(`test-${url[0]}`, url[1]);
+  }
 
   const libs = Promise.all(
     [...new Set(
@@ -19,7 +24,7 @@ const { handler, completeLevel } = (function() {
               resolve();
             } else reject();
         });
-        xhr.open('GET', `/resource/lib/${lib}.min.js`, true);
+        xhr.open('GET', `{{ site.baseurl }}/resource/lib/${lib}.min.js`, true);
         xhr.setRequestHeader('Content-Type', 'text/javascript');
         xhr.send();
       }))
@@ -48,7 +53,7 @@ const { handler, completeLevel } = (function() {
   }
 
   function completeLevel(level, password) {
-    libs.then(() => window.location.href = `/${level}/${sha1(password)}`)
+    libs.then(() => window.location.href = `{{ site.baseurl }}/${level}/${sha1(password)}`)
     return true;
   }
 
