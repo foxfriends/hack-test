@@ -40,9 +40,11 @@ times when you want this. In that case follow this process:
 4.  Ensure the file name follows the format `<package>.min.js`
 5.  Commit the changes to package.json, and the file you copied to the libs
     directory, but **do not** commit the entirety of node_modules
-6.  Add a `data-libs` attribute to the script tag that loads
-    /resource/common.js. The value is a comma separated list of package names,
-    i.e: `<script src="/resource/common" data-libs="react,babel"></script>`
+6.  Add a `data-libs` attribute to the script tag that loads the common scripts.
+    The value is a comma separated list of package names, i.e:
+    ```html
+    <script src="{{ '/resource/common.js' | relative_url }}" data-libs="react,redux"></script>
+    ```
     These packages will be loaded asynchronously automatically.
 
 Following this process keeps unnecessary clutter away from the players, so they

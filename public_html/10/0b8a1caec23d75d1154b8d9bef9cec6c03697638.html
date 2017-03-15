@@ -10,10 +10,10 @@
     <script src="{{ '/resource/common.js' | relative_url }}"></script>
     <script>
     const r = (f, ...a) => typeof f === 'function' ? f(...a) : f;
-          r.if = (b, t, f) => b ? r(t) : r(f)
-    const λ = f => (...x) => r(f, ...x)
+          r.if = (b, t, f) => b ? r(t) : r(f);
+    const λ = f => (...x) => r(f, ...x);
     const plus = λ((...x) => r([].reduce.bind(x), λ((x,y) => x + y), ''));
-    const rep  = λ((x,n) => r(r.if, r(Object.is, n, 0), λ(_ => ''), λ(_ => r(plus, x, r(rep, x, n - 1)))))
+    const rep  = λ((x,n) => r(r.if, r(Object.is, n, 0), λ(_ => ''), λ(_ => r(plus, x, r(rep, x, n - 1)))));
     const p = r([].join.bind(r([].map.bind(r(r(plus, 'b', ...r(rep, 'n', 2))), λ(x => x + 'a')))), '');
     const v = λ(g => r(r.if, r(Object.is, g, p), λ(_ => r(completeLevel, 11, p)), λ(_ => false)));
     const validate = v;
