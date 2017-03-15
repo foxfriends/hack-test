@@ -10,7 +10,8 @@
     <script src="{{ '/resource/common.js' | relative_url }}"></script>
     <script>
     function validate(guess) {
-      const password = window.getComputedStyle(document.querySelector('span')).content;
+      const password = window.getComputedStyle(document.querySelector('span')).content.split('').filter(x => /\w/.test(x)).join('');
+      console.log(password);
       if(guess === password)
         return completeLevel(8, password);
     }
