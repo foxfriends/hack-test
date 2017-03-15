@@ -35,12 +35,20 @@ span {
   left: 1pc;
   bottom: 1pc;
   content: 'mirage';
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
 q {
   position: fixed;
   right: 1pc;
   bottom: 1pc;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
 .shake {
