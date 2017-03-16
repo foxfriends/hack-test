@@ -1,0 +1,37 @@
+---
+---
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="OinkIguana" />
+    <title>Level 16</title>
+    <link rel="stylesheet" type="text/css" href="{{ '/resource/style.css' | relative_url }}" />
+    <script src="{{ '/resource/common.js' | relative_url }}" data-libs="roy"></script>
+    <script type="text/roy">
+    let r c : String = String.fromCharCode (25 - ((c.charCodeAt 0) - 97) + 97)
+    data T a = N a (T a) (T a) | E
+    let e = E ()
+    let m f t = match t
+      case (N p l r)  = N (f p) (m f l) (m f r)
+      case E          = e
+    let f v t = match t
+      case (N p l r)  = if v p then (N p (f v l) (f v r)) else e
+      case E          = e
+    let c t = match t
+      case (N p l r)  = (c l) + (String p) + (c r)
+      case E          = (String '')
+    let l c = 'a' <= c && c <= 'z'
+    // (N 'h' (N 'l' (N 'k' e e) (N 'M' (N 'i' e e) (N 'j' e e))) (N 'v' (N 'g' E E) (N 'i' (N 'T' (N 'z' e e) (N 'E' e e)) E)))
+    let p =
+      c (f l (m r (N 'h' (N 'l' (N 'k' e e) (N 'M' (N 'i' e e) (N 'j' e e))) (N 'v' (N 'g' e e) (N 'i' (N 'T' (N 'z' e e) (N 'E' e e)) e)))))
+    let validate g = if g == p then completeLevel 17 p else false
+    export validate
+    export r
+    </script>
+  </head>
+  <body>
+    <input type="text" onkeypress="handler.call(this, event)" autofocus autocomplete="off" />
+    <span>16</span>
+  </body>
+</html>

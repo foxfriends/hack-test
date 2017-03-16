@@ -6,7 +6,7 @@ const { handler, completeLevel } = (function() {
     `Though I certainly can't stop you, and looking at the code through here is`,
     `very much allowed, do consider how unexciting this would be if you`,
     `used the debugger to avoid the challenge. There's no harm in using the`,
-    `console as a scratchpad for calculations, but for the true, intended`,
+    `console as a scratchpad for calculations, but for the intended`,
     `experience, it would be best to just view-source the old fashioned way`,
     `(ctrl/cmd-u)`
   );
