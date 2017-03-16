@@ -9,11 +9,12 @@
     <link rel="stylesheet" type="text/css" href="{{ '/resource/style.css' | relative_url }}" />
     <script src="{{ '/resource/common.js' | relative_url }}"></script>
     <script>
+    const quote = document.querySelector('q').textContent;
     function validate(guess) {
       const d = new Date();
       d.setTime(868565280000);
       const index = d.getUTCMonth();
-      const password = document.querySelector('q').textContent.split(' ')[index].slice(0, -1);
+      const password = quote.split(' ')[index].slice(0, -1);
       if(guess === password)
         return completeLevel(9, password);
     }
