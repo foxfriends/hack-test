@@ -22,12 +22,10 @@
       case (N p l r)  = (c l) + (String p) + (c r)
       case E          = (String '')
     let l c = 'a' <= c && c <= 'z'
-    // (N 'h' (N 'l' (N 'k' e e) (N 'M' (N 'i' e e) (N 'j' e e))) (N 'v' (N 'g' E E) (N 'i' (N 'T' (N 'z' e e) (N 'E' e e)) E)))
     let p =
       c (f l (m r (N 'h' (N 'l' (N 'k' e e) (N 'M' (N 'i' e e) (N 'j' e e))) (N 'v' (N 'g' e e) (N 'i' (N 'T' (N 'z' e e) (N 'E' e e)) e)))))
     let validate g = if g == p then completeLevel 17 p else false
     export validate
-    export r
     </script>
   </head>
   <body>
