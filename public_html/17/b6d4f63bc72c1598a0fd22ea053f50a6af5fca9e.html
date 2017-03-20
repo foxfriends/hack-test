@@ -1,0 +1,26 @@
+---
+---
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="OinkIguana" />
+    <title>Level 17</title>
+    <link rel="stylesheet" type="text/css" href="{{ '/resource/style.css' | relative_url }}" />
+    <script src="{{ '/resource/common.js' | relative_url }}"></script>
+    <script>
+    function validate(guess) {
+      const password = '👺🍯🍭🍢🍩🍥'
+        .split('').map(x => x.charCodeAt(0).toString(16).slice(2))
+        .filter((_, i) => i % 2).map(x => String.fromCharCode(parseInt(x, 16)))
+        .join('');
+      if(guess === password)
+        return completeLevel(18, password);
+    }
+    </script>
+  </head>
+  <body>
+    <input type="text" onkeypress="handler.call(this, event)" autofocus autocomplete="off" />
+    <span>17</span>
+  </body>
+</html>
