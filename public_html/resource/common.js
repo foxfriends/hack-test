@@ -2,15 +2,6 @@
 ---
 const { handler, completeLevel } = (function() {
   'use strict';
-  console.log(
-    `Though I certainly can't stop you, and looking at the code through here is`,
-    `very much allowed, do consider how unexciting this would be if you`,
-    `used the debugger to avoid the challenge. There's no harm in using the`,
-    `console as a scratchpad for calculations, but for the intended`,
-    `experience, it would be best to just view-source the old fashioned way`,
-    `(ctrl/cmd-u)`
-  );
-
   const url = window.location.href.split('/').slice(-2);
   if(url[1].length === 40) {
     // save progress, only for sha1 hash levels
@@ -72,6 +63,14 @@ const { handler, completeLevel } = (function() {
     libs.then(() => window.location.href = `{{ site.baseurl }}/${level}/${sha1(password)}`)
     return true;
   }
+
+  console.log(
+    `Though I certainly can't stop you, and looking at the code through  the`,
+    `debugger is very much allowed, do consider how unexciting this would be if`,
+    `you used it to avoid the challenge. There's no shame in using the console`,
+    `as a scratchpad for calculations, but for the intended experience, it`,
+    `would be best to just view-source the old fashioned way (ctrl/cmd-u)`
+  );
 
   return { handler, completeLevel };
 })();
