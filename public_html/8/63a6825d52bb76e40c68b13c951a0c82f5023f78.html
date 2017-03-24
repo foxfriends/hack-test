@@ -1,4 +1,5 @@
 ---
+hash: d68049bb85454c0b8c56ffbb73c45e8adee41b21
 ---
 <!DOCTYPE html>
 <html>
@@ -9,8 +10,9 @@
     <link rel="stylesheet" type="text/css" href="{{ '/resource/style.css' | relative_url }}" />
     <script src="{{ '/resource/common.js' | relative_url }}"></script>
     <script>
-    const quote = document.querySelector('q').textContent;
+    let quote
     function validate(guess) {
+      quote = quote || document.querySelector('q').textContent;
       const d = new Date();
       d.setTime(868565280000);
       const index = d.getUTCMonth();
