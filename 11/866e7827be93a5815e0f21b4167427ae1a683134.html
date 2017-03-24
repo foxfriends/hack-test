@@ -1,0 +1,35 @@
+---
+hash: ba856797a6ed7651c7e6965efeead66cb632f0a5
+---
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="OinkIguana" />
+    <title>Level 14</title>
+    <link rel="stylesheet" type="text/css" href="{{ '/resource/style.css' | relative_url }}" />
+    <script src="{{ '/resource/common.js' | relative_url }}"></script>
+    <script>
+    let validate = () => false
+    window.addEventListener('load', () => {
+      if(!localStorage.getItem('--')) {
+        localStorage.setItem('--', '--');
+        window.addEventListener('beforeunload', () => localStorage.removeItem('--'))
+        const i = document.querySelector('input');
+        i.parentNode.removeChild(i);
+      } else {
+        validate = function validate(guess) {
+          const password = 'butterfly';
+          if(guess === password)
+            return completeLevel(12, password);
+        }
+      }
+    });
+    </script>
+  </head>
+  <body>
+    <input type="text" onkeypress="handler.call(this, event)" autofocus autocomplete="off" />
+    <q>Fear of failure must never be a reason not to try something</q>
+    <span>14</span>
+  </body>
+</html>
