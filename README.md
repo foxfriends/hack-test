@@ -46,6 +46,9 @@ times when you want this. In that case follow this process:
     These packages will be loaded asynchronously automatically.
 6.  Commit the installed modules to the repository. This is to accommodate
     customized patches to packages to make them work as required.
+7.  Add a note to the NOTES.md file in the resource directory about the package
+    added and describe the purpose of any changes you made to the package to
+    make it do what you want.
 
 Following this process keeps unnecessary clutter away from the players, so they
 can focus on solving the actual puzzle.
