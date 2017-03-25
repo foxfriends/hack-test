@@ -10,7 +10,28 @@ hash: ___
     <link rel="stylesheet" type="text/css" href="{{ '/resource/style.css' | relative_url }}" />
     <script src="{{ '/resource/common.js' | relative_url }}"></script>
     <script>
-    // level not yet complete
+    const load = new Promise(resolve => {
+      const req = new XMLHttpRequest();
+      req.onload = () => resolve(new Uint8Array(req.response));
+      req.open("GET", "./h.mid", true);
+      req.responseType = "arraybuffer";
+      req.send();
+    });
+
+    function parse(data) {
+      if(!data.length) { return Promise.resolve(''); }
+      if(data[0] === 0x90) { return parse(data.slice(2)).then(rest => String.fromCharCode(data[1]) + rest); }
+      return parse(data.slice(1));
+    }
+
+    function validate(guess) {
+      return load.then(parse).then(password => {
+        if(guess === password.toLowerCase())
+          return Promise.resolve(completeLevel(19, guess));
+        else
+          return Promise.reject(false)
+      });
+    }
     </script>
   </head>
   <body>
