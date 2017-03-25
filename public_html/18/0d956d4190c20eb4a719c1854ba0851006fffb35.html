@@ -13,7 +13,7 @@ hash: 59acab5d0a5ee07d665440a21ec311c06bcdfe93
     const load = new Promise(resolve => {
       const req = new XMLHttpRequest();
       req.onload = () => resolve(new Uint8Array(req.response));
-      req.open("GET", "./h.mid", true);
+      req.open("GET", "h.mid", true);
       req.responseType = "arraybuffer";
       req.send();
     });
