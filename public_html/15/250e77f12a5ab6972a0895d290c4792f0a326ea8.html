@@ -10,23 +10,26 @@ hash: cbf83732d000b17d779f7d7240d42cffe181c939
     <link rel="stylesheet" type="text/css" href="{{ '/resource/style.css' | relative_url }}" />
     <script src="{{ '/resource/common.js' | relative_url }}"></script>
     <script>
-    const visit = p => p.then((u => new Promise(r => {
-      const xhr = new XMLHttpRequest();
-      xhr.onreadystatechange = () =>
-      xhr.status === 200
-      && xhr.readyState === 4
-      && r(JSON.parse(xhr.responseText));
-      xhr.open('GET', u, true);
-      xhr.send();
-    })));
-    const key       = 'AIzaSyD9t62DwBa2ZqI0RFCdMCBwJ_8TrSra22M';
-    const ad        = s => Promise.resolve(`https://maps.googleapis.com/maps/api/geocode/json?address=${s}&key=${key}`);
-    const ll        = p => p.then(l => `https://maps.googleapis.com/maps/api/geocode/json?latlng=${l}&key=${key}`);
-    const lola      = p => p.then(({ results : [{ geometry : { location : { lat, lng }}}]}) => [lat, lng]);
-    const combine   = p => p.then(([[x,y], [w,z]]) => `${(x + w) / 2},${(y + z) * 2}`);
-    const extract   = p => p.then(({ results : [{address_components : [,{ short_name: s }]}]}) => s.split(' ')[1]);
-    const password  = extract(visit(ll(combine(Promise.all([lola(visit(ad('Pyramiden'))), lola(visit(ad('Beirut')))])))));
-    const validate  = guess => password.then(password => guess === password ? completeLevel(16, password) : Promise.reject());
+    const { validate } = (function() {
+      const visit = p => p.then((u => new Promise(r => {
+        const xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = () =>
+        xhr.status === 200
+        && xhr.readyState === 4
+        && r(JSON.parse(xhr.responseText));
+        xhr.open('GET', u, true);
+        xhr.send();
+      })));
+      const key       = 'AIzaSyD9t62DwBa2ZqI0RFCdMCBwJ_8TrSra22M';
+      const ad        = s => Promise.resolve(`https://maps.googleapis.com/maps/api/geocode/json?address=${s}&key=${key}`);
+      const ll        = p => p.then(l => `https://maps.googleapis.com/maps/api/geocode/json?latlng=${l}&key=${key}`);
+      const lola      = p => p.then(({ results : [{ geometry : { location : { lat, lng }}}]}) => [lat, lng]);
+      const combine   = p => p.then(([[x,y], [w,z]]) => `${(x + w) / 2},${(y + z) * 2}`);
+      const extract   = p => p.then(({ results : [{address_components : [,{ short_name: s }]}]}) => s.split(' ')[1]);
+      const password  = extract(visit(ll(combine(Promise.all([lola(visit(ad('Pyramiden'))), lola(visit(ad('Beirut')))])))));
+      const validate  = guess => password.then(password => guess === password ? completeLevel(16, password) : Promise.reject());
+      return { validate };
+    });
     </script>
   </head>
   <body>
