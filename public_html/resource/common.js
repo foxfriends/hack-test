@@ -60,12 +60,12 @@ const { handler, completeLevel } = (function() {
   }
 
   function completeLevel(level, password) {
-    libs.then(() => window.location.href = `{{ site.baseurl }}/${level}/${sha1(password)}`)
+    libs.then(() => window.location.href = `{{ site.baseurl }}/${level}/${sha1(password)}`);
     return true;
   }
 
   console.log(
-    `Though I certainly can't stop you, and looking at the code through  the`,
+    `Though I certainly can't stop you, and looking at the code through the`,
     `debugger is very much allowed, do consider how unexciting this would be if`,
     `you used it to avoid the challenge. There's no shame in using the console`,
     `as a scratchpad for calculations, but for the intended experience, it`,

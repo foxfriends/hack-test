@@ -38,14 +38,14 @@ times when you want this. In that case follow this process:
 2.  Install the relevant package from NPM using `npm install <package> --save`
 3.  Copy the *minified* source file to `public_html/resource/lib`
 4.  Ensure the file name follows the format `<package>.min.js`
-5.  Commit the changes to package.json, and the file you copied to the libs
-    directory, but **do not** commit the entirety of node_modules
-6.  Add a `data-libs` attribute to the script tag that loads the common scripts.
+5.  Add a `data-libs` attribute to the script tag that loads the common scripts.
     The value is a comma separated list of package names, i.e:
     ```html
     <script src="{{ '/resource/common.js' | relative_url }}" data-libs="react,redux"></script>
     ```
     These packages will be loaded asynchronously automatically.
+6.  Commit the installed modules to the repository. This is to accommodate
+    customized patches to packages to make them work as required.
 
 Following this process keeps unnecessary clutter away from the players, so they
 can focus on solving the actual puzzle.
