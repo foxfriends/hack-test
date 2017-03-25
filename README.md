@@ -1,6 +1,7 @@
 # hack-test
 
-Dig through the source code to figure out the password.
+Dig through the source code to figure out the password. Play on
+oinkiguana.github.io/hack-test/
 
 ## Contributions
 
