@@ -12,7 +12,6 @@ hash: 63a6825d52bb76e40c68b13c951a0c82f5023f78
     <script>
     function validate(guess) {
       const password = window.getComputedStyle(document.querySelector('span')).content.split('').filter(x => /\w/.test(x)).join('');
-      console.log(password);
       if(guess === password)
         return completeLevel(8, password);
     }

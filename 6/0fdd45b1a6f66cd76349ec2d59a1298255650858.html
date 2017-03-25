@@ -13,8 +13,8 @@ hash: fbf5f2a2875b3bb65b8e3b23e6cc01d58ca30447
     function calculate(c) {
       return (c || '') && (String.fromCharCode(c & 0xff) + calculate(c >> 8));
     }
-    const password = calculate(1818845556);
     function validate(guess) {
+      const password = calculate(1818845556);
       if(guess === password)
         return completeLevel(7, password);
     }
