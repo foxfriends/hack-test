@@ -13,14 +13,14 @@ hash: 59acab5d0a5ee07d665440a21ec311c06bcdfe93
     const load = new Promise(resolve => {
       const req = new XMLHttpRequest();
       req.onload = () => resolve(new Uint8Array(req.response));
-      req.open("GET", "h.mid", true);
-      req.responseType = "arraybuffer";
+      req.open('GET', 'h.mid', true);
+      req.responseType = 'arraybuffer';
       req.send();
     });
 
     function parse(data) {
-      if(!data.length) { return Promise.resolve(''); }
-      if(data[0] === 0x90) { return parse(data.slice(2)).then(rest => String.fromCharCode(data[1]) + rest); }
+      if(!data.length)      return Promise.resolve('');
+      if(data[0] === 0x90)  return parse(data.slice(2)).then(rest => String.fromCharCode(data[1]) + rest);
       return parse(data.slice(1));
     }
 
@@ -29,7 +29,7 @@ hash: 59acab5d0a5ee07d665440a21ec311c06bcdfe93
         if(guess === password.toLowerCase())
           return Promise.resolve(completeLevel(19, guess));
         else
-          return Promise.reject(false)
+          return Promise.reject();
       });
     }
     </script>

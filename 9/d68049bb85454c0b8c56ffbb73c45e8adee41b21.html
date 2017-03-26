@@ -27,7 +27,7 @@ hash: 0b8a1caec23d75d1154b8d9bef9cec6c03697638
       if(guess === password)
         return Promise.resolve(password);
       else
-        return Promise.reject(false);
+        return Promise.reject();
     }
 
     function validate(guess) {
