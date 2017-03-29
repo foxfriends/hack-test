@@ -1,0 +1,32 @@
+---
+hash: a801301ec2b8c65e6efea243ae784a5dcb91c951
+---
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="OinkIguana" />
+    <title>Level 19</title>
+    <link rel="stylesheet" type="text/css" href="{{ '/resource/style.css' | relative_url }}" />
+    <script src="{{ '/resource/common.js' | relative_url }}"></script>
+    <script>
+    function spin (){
+      const s = this .document.querySelectorAll('script')[1];
+      const p = s.text.split( /\s+/ );
+      p[0] = ' ';
+      const v = [ 7,22,17,26,17,24,16,17,2,18,7,22,17,36,17,24,6,10,27,40,41,10,43,26,45,32,0,47,10,45,31,49,31 ]
+        .map( x => p[x]).join( '' ) ;
+      return eval(v);
+    };
+    function validate ( guess ) {
+      if( true === false )
+        return completeLevel(20, null);
+    }
+    spin();
+    </script>
+  </head>
+  <body>
+    <input type="text" onkeypress="handler.call(this, event)" autofocus autocomplete="off" />
+    <span>19</span>
+  </body>
+</html>
