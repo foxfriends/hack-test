@@ -1,5 +1,3 @@
----
----
 const { handler, completeLevel } = (function() {
   'use strict';
   const url = window.location.href.split('/').slice(-2);
@@ -24,7 +22,7 @@ const { handler, completeLevel } = (function() {
               resolve();
             } else reject();
         });
-        xhr.open('GET', `{{ site.baseurl }}/resource/lib/${lib}.min.js`, true);
+        xhr.open('GET', `../resource/lib/${lib}.min.js`, true);
         xhr.setRequestHeader('Content-Type', 'text/javascript');
         xhr.send();
       }))
@@ -60,7 +58,7 @@ const { handler, completeLevel } = (function() {
   }
 
   function completeLevel(level, password) {
-    libs.then(() => window.location.href = `{{ site.baseurl }}/${level}/${sha1(password)}`);
+    libs.then(() => window.location.href = `../${level}/${sha1(password)}`);
     return true;
   }
 
