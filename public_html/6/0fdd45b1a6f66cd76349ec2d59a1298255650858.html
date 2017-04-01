@@ -1,14 +1,11 @@
----
-hash: fbf5f2a2875b3bb65b8e3b23e6cc01d58ca30447
----
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
     <meta name="author" content="OinkIguana" />
     <title>Level 6</title>
-    <link rel="stylesheet" type="text/css" href="{{ '/resource/style.css' | relative_url }}" />
-    <script src="{{ '/resource/common.js' | relative_url }}"></script>
+    <link rel="stylesheet" type="text/css" href="../resource/style.css" />
+    <script src="../resource/common.js"></script>
     <script>
     function calculate(c) {
       return (c || '') && (String.fromCharCode(c & 0xff) + calculate(c >> 8));

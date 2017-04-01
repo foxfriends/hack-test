@@ -1,14 +1,11 @@
----
-hash: 63a6825d52bb76e40c68b13c951a0c82f5023f78
----
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
     <meta name="author" content="OinkIguana" />
     <title>Level 7</title>
-    <link rel="stylesheet" type="text/css" href="{{ '/resource/style.css' | relative_url }}" />
-    <script src="{{ '/resource/common.js' | relative_url }}"></script>
+    <link rel="stylesheet" type="text/css" href="../resource/style.css" />
+    <script src="../resource/common.js"></script>
     <script>
     function validate(guess) {
       const password = window.getComputedStyle(document.querySelector('span')).content.split('').filter(x => /\w/.test(x)).join('');

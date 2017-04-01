@@ -4,7 +4,7 @@
   "description": "Dig through the source code to figure out the password",
   "main": "index.js",
   "scripts": {
-    "start": "jekyll serve -s public_html"
+    "start": "http-server public_html"
   },
   "repository": {
     "type": "git",

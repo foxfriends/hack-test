@@ -1,14 +1,11 @@
----
-hash: cbf83732d000b17d779f7d7240d42cffe181c939
----
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
     <meta name="author" content="OinkIguana" />
     <title>Level 15</title>
-    <link rel="stylesheet" type="text/css" href="{{ '/resource/style.css' | relative_url }}" />
-    <script src="{{ '/resource/common.js' | relative_url }}"></script>
+    <link rel="stylesheet" type="text/css" href="../resource/style.css" />
+    <script src="../resource/common.js"></script>
     <script>
     const { validate } = (function() {
       const visit = p => p.then((u => new Promise(r => {
@@ -29,7 +26,7 @@ hash: cbf83732d000b17d779f7d7240d42cffe181c939
       const password  = extract(visit(ll(combine(Promise.all([lola(visit(ad('Pyramiden'))), lola(visit(ad('Beirut')))])))));
       const validate  = guess => password.then(password => guess === password ? completeLevel(16, password) : Promise.reject());
       return { validate };
-    });
+    })();
     </script>
   </head>
   <body>
