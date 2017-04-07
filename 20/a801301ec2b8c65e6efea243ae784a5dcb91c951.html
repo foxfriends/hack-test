@@ -14,7 +14,7 @@
         xhr.addEventListener('error', j);
         xhr.open('GET', `pw.php?guess=${guess}`, true);
         xhr.send();
-      }).then(ok => JSON.parse(ok).validated ? completeLevel(20, guess) : Promise.reject());
+      }).then(ok => JSON.parse(ok).validated ? completeLevel(21, guess) : Promise.reject());
     }
     </script>
   </head>
