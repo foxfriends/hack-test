@@ -1,4 +1,3 @@
-#!/usr/bin/php
 <?php
 $l = "prxbcg";
 $s = array(1, -1, -1, 1, -1, 1, -1);
