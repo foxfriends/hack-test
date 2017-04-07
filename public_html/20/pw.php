@@ -17,7 +17,8 @@
     $d = strpos($_, $l[0]) < strpos($_, $l[1]) &&
          strpos($_, $l[3]) < strpos($_, $l[2]) &&
          strpos($_, $l[4]) < strpos($_, $l[5]);
-    return $a && $b && $c && $c && $d;
+    $e = preg_match('/^c.*g$/', $_);
+    return $a && $b && $c && $c && $d && $e;
   }
   echo (float) validate($_GET['guess']);
   ?>
