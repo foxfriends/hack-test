@@ -3,19 +3,23 @@
   <head>
     <meta charset="utf-8">
     <meta name="author" content="OinkIguana" />
-    <title>Level _____</title>
+    <title>Level 20</title>
     <link rel="stylesheet" type="text/css" href="../resource/style.css" />
     <script src="../resource/common.js"></script>
     <script>
     function validate(guess) {
-      const password = '';
-      if(guess === password)
-        return completeLevel(_____, password);
+      return new Promise((r, j) => {
+        const xhr = new XMLHttpRequest();
+        xhr.addEventListener('load', _ => r(xhr.responseText));
+        xhr.addEventListener('error', j);
+        xhr.open('GET', `pw.php?guess=${guess}`, true);
+        xhr.send();
+      }).then(ok => JSON.parse(ok) ? completeLevel(20, guess) : Promise.reject());
     }
     </script>
   </head>
   <body>
     <input type="text" onkeypress="handler.call(this, event)" autofocus autocomplete="off" />
-    <span>_____</span>
+    <span>20</span>
   </body>
 </html>

@@ -2,7 +2,7 @@
   "name": "hack-test",
   "version": "1.0.0",
   "description": "Dig through the source code to figure out the password",
-  "main": "index.js",
+  "main": "",
   "scripts": {
     "start": "http-server public_html"
   },
@@ -24,10 +24,12 @@
   "bugs": {
     "url": "https://github.com/OinkIguana/hack-test/issues"
   },
-  "homepage": "https://github.com/OinkIguana/hack-test#readme",
+  "homepage": "http://cameldridge.com/hack-test/0/",
   "dependencies": {
     "js-sha1": "^0.4.1",
     "roy": "^0.2.2"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "http-server": "^0.9.0"
+  }
 }
