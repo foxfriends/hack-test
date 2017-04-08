@@ -26,6 +26,7 @@
   },
   "homepage": "http://cameldridge.com/hack-test/0/",
   "dependencies": {
+    "htms": "^1.0.2",
     "js-sha1": "^0.4.1",
     "roy": "^0.2.2"
   },

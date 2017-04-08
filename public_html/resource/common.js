@@ -1,4 +1,4 @@
-const { handler, completeLevel } = (function() {
+var { handler, completeLevel } = (function() {
   'use strict';
   const url = window.location.href.split('/').slice(-2);
   if(url[1].length === 40) {
