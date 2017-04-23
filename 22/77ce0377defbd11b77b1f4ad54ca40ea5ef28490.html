@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="OinkIguana" />
+    <title>Level 22</title>
+    <link rel="stylesheet" type="text/css" href="../resource/style.css" />
+    <script src="../resource/common.js" data-libs="jszip"></script>
+    <script>
+    const load = new Promise(resolve => {
+      const req = new XMLHttpRequest();
+      req.onload = () => resolve(new Uint8Array(req.response));
+      req.open('GET', 'cc.png', true);
+      req.responseType = 'arraybuffer';
+      req.send();
+    });
+
+    function validate(guess) {
+      const zip = new JSZip();
+      return load.then(zip.loadAsync.bind(zip)).then(zip => zip.file('cc.txt').async('string')).then(password => {
+        if(guess === password.split(/\s+/)[182].slice(0, -1))
+          return Promise.resolve(completeLevel(23, password));
+        else
+          return Promise.reject();
+      });
+    }
+    </script>
+  </head>
+  <body>
+    <input type="text" onkeypress="handler.call(this, event)" autofocus autocomplete="off" />
+    <span>22</span>
+  </body>
+</html>

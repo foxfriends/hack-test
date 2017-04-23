@@ -22,3 +22,9 @@ HTMS interpreter.
 Unmodified. Stored in the folder with Level 21, since I expect it only to be
 used there, is not minified, and will likely be read when looking for the
 solution.
+
+## `jszip`
+
+Used for decompressing a zip file.
+
+Unmodified.
