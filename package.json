@@ -26,6 +26,9 @@
   },
   "homepage": "http://cameldridge.com/hack-test/0/",
   "dependencies": {
+    "@susisu/bfjs": "^0.1.2",
+    "@susisu/grass-js": "0.0.6",
+    "@susisu/whitespace-js": "0.0.8",
     "htms": "^1.0.2",
     "js-sha1": "^0.4.1",
     "jszip": "^3.1.3",
