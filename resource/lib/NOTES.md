@@ -28,3 +28,33 @@ solution.
 Used for decompressing a zip file.
 
 Unmodified.
+
+## `@susisu/grass`
+
+Grass interpreter.
+
+Added `webpack.config.js` and `browser.js` to compile to `grass.min.js`,
+exposing a function to execute a script given a selector.
+
+## `@susisu/whitespace`
+
+Whitespace interpreter.
+
+Added `webpack.config.js` and `browser.js` to compile to `ws.min.js`,
+exposing a function to execute a script given a selector.
+
+## `@susisu/bfjs`
+
+Brainf*** interpreter.
+
+Added `webpack.config.js` and `browser.js` to compile to `bf.min.js`,
+exposing a function to execute a script given a selector.
+
+## `befunge`
+
+Befunge interpreter. Found [here](http://www.quirkster.com/iano/js/befunge.js),
+not on NPM.
+
+Modified so it could be called as a function like the other libraries above
+instead of parsing the DOM for specific elements, and to remove the step through
+features.
