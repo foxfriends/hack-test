@@ -1,4 +1,4 @@
-# hack-test
+# Hack Test
 
 Dig through the source code to figure out the password. Play
 [here](http://cameldridge.com/hack-test/0/)
