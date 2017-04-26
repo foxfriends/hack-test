@@ -58,3 +58,15 @@ not on NPM.
 Modified so it could be called as a function like the other libraries above
 instead of parsing the DOM for specific elements, and to remove the step through
 features.
+
+## `tesseract`
+
+Optical character recognition.
+
+Unmodified.
+
+## `transliteration.cyr`
+
+Transliterate from Cyrillic alphabet to Latin.
+
+Unmodified.
