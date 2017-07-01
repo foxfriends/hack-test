@@ -23,6 +23,13 @@ Unmodified. Stored in the folder with Level 21, since I expect it only to be
 used there, is not minified, and will likely be read when looking for the
 solution.
 
+## `babel-standalone`
+
+Babel standalone compiler.
+
+Stored as `babel` in libs. Used for backwards compatibility on some levels (21).
+May be removed in the future when browsers all catch up.
+
 ## `jszip`
 
 Used for decompressing a zip file.
