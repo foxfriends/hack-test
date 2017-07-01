@@ -1,4 +1,4 @@
-# hack-test
+# Hack Test
 
 Dig through the source code to figure out the password. Play
 [here](http://cameldridge.com/hack-test/0/)
@@ -33,23 +33,31 @@ spirit, I'll slip it into the game somewhere.
 ### External packages
 
 Though you should do your best to avoid additional dependencies, there may be
-times when you want this. In that case follow this process:
+times when you require them. In that case follow this process:
 
-1.  Check if a similar-purpose package is already included. If so, skip to 6
+1.  Check if a similar-purpose package is already included. If so, skip to 5
 2.  Install the relevant package from NPM using `npm install <package> --save`
-3.  Copy the *minified* source file to `public_html/resource/lib`
-4.  Ensure the file name follows the format `<package>.min.js`
+3.  Copy the *minified* (if you can) source file to `public_html/resource/lib`
+4.  Ensure the file name follows the format `<package>.min.js` (even if not 
+    actually minimized)
 5.  Add a `data-libs` attribute to the script tag that loads the common scripts.
     The value is a comma separated list of package names, i.e:
     ```html
     <script src="{{ '/resource/common.js' | relative_url }}" data-libs="react,redux"></script>
     ```
-    These packages will be loaded asynchronously automatically.
-6.  Commit the installed modules to the repository. This is to accommodate
-    customized patches to packages to make them work as required.
+    These packages will be loaded automatically but asynchronously. Since they
+    are asynchronous, they should only be used after the validate function is
+    called to ensure they have had enough time to load. 
+    
+    If you *absolutely require* a package be loaded immediately, or wish to keep
+    some code separately, add its script tag to the page normally. This is
+    discouraged as it adds unnecessary clutter to the user's experience. No puzzle
+    should require reading the source code of external libraries (they can read
+    the docs instead, based on the titles listed, if necessary).
+6.  Commit any installed modules to the repository when you submit the level. This 
+    is to accommodate custom patches to packages to make them work as required.
 7.  Add a note to the NOTES.md file in the resource directory about the package
-    added and describe the purpose of any changes you made to the package to
-    make it do what you want.
+    added and describe the purpose of any changes you made to the package.
 
 Following this process keeps unnecessary clutter away from the players, so they
 can focus on solving the actual puzzle.
