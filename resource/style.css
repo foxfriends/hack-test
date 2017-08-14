@@ -4,6 +4,10 @@
   10%, 30%, 50%, 70%, 90% { transform: translateX(-4px) }
   20%, 40%, 60%, 80% { transform: translateX(4px) }
 }
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(180deg); }
+}
 
 body {
   margin: 0;
@@ -54,4 +58,32 @@ q {
 .shake {
   animation: shake 0.5s linear both;
   transform: translateX(0);
+}
+
+.loader {
+  position: absolute;
+  animation: spin 1s infinite;
+  transform-origin: center;
+}
+.loader::before {
+  content: '';
+  background-color: black;
+  opacity: 0.2;
+  position: absolute;
+  top: -12px;
+  left: -4px;
+  width: 8px;
+  height: 8px;
+  border-radius: 100%;
+}
+.loader::after {
+  content: '';
+  background-color: black;
+  opacity: 0.2;
+  position: absolute;
+  top: 4px;
+  left: -4px;
+  width: 8px;
+  height: 8px;
+  border-radius: 100%;
 }
