@@ -1,7 +1,7 @@
 var { handler, completeLevel } = (function() {
   'use strict';
   const url = window.location.href.split('/').slice(-2);
-  if(url[1].length === 40) {
+  if(+window.sessionStorage.getItem('last-level') + 1 == +url[0] && url[1].length === 40) {
     // save progress, only for sha1 hash levels
     window.localStorage.setItem(`test-${url[0]}`, url[1]);
   }
@@ -58,6 +58,7 @@ var { handler, completeLevel } = (function() {
   }
 
   function completeLevel(level, password) {
+    window.sessionStorage.setItem('last-level', `${url[0]}`);
     libs.then(() => window.location.href = `../${level}/${sha1(password)}`);
     return true;
   }
