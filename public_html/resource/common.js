@@ -40,13 +40,20 @@ var { handler, completeLevel } = (function() {
     }
   }
 
+  const loader = document.createElement('DIV');
+  loader.classList.add('loader');
+
   let fails = 0;
   function handler(event) {
     if(event.key === "Enter") {
       const validation = validate(this.value, 'deeper');
-      if(validation instanceof Promise)
-        validation.catch(shake.bind(this));
-      else if(!validation) {
+      if(validation instanceof Promise) {
+        document.body.appendChild(loader)
+        validation.catch(() => {
+          document.body.removeChild(loader)
+          shake.call(this);
+        });
+      } else if(!validation) {
         shake.call(this);
         if(++fails >= 5) {
           const el = document.querySelector('q') || document.createElement('Q');
