@@ -11,9 +11,9 @@
       const [a,b,c,d,e,f,g,h,i] = [...guess];
       try {
         return eval(`(() => {
-          c${c}${e}${i}t pa${i}${i}w${c}${h}${f} = '${a}${b}${c}${d}${e}${f}${g}${h}${i}';
-          i${a}(g${d}${g}${i}${i} === pa${i}${i}w${c}${h}${f})
-            ${h}${g}t${d}${h}${e} c${c}mp${b}${g}t${g}L${g}v${g}${b}(27, pa${i}${i}w${c}${h}${f});
+          c${c}${eval(`${g}`)}${i}t ${i} = '${a}${b}${c}${d}${e}${f}${g}${h}${i}';
+          i${a}(g${d}${g}${i}${i} === ${i})
+            ${h}${g}t${eval(`${f}`)}${h}${e} c${c}mp${b}${g}t${g}L${g}v${g}${b}(27, ${i});
         })()`);
       } catch(_) { return false; }
     }
