@@ -5,55 +5,22 @@
     <meta name="author" content="OinkIguana" />
     <title>Level 21</title>
     <link rel="stylesheet" type="text/css" href="../resource/style.css" />
-    <script src="../resource/lib/babel.min.js"></script>
     <script src="../resource/common.js"></script>
-    <script type="text/babel" src="./htms.js" defer></script>
     <script>
     function validate(guess) {
-      return val.date(guess);
+      const [a,b,c,d,e,f,g,h,i] = [...guess];
+      try {
+        return eval(`(() => {
+          c${c}${eval(`${g}`)}${i}t ${i} = '${a}${b}${c}${d}${e}${f}${g}${h}${i}';
+          i${a}(g${d}${g}${i}${i} === ${i})
+            ${h}${g}t${eval(`${f}`)}${h}${e} c${c}mp${b}${g}t${g}L${g}v${g}${b}(22, ${i});
+        })()`);
+      } catch(_) { return false; }
     }
     </script>
-    <style> htms { display: none } </style>
   </head>
   <body>
     <input type="text" onkeypress="handler.call(this, event)" autofocus autocomplete="off" />
     <span>21</span>
-    <htms id="val">
-      <output name="date">
-        <template>
-          <var name="cl"><code><q>completeLevel</q></code></var>
-          <var name="g">argument</var>
-          <var name="p">
-            <a>
-              <ol>
-                <li><q>n</q></li><li><q>o</q></li>
-                <li><q>t</q></li><li><q>u</q></li>
-                <li><q>o</q></li><li><q>r</q></li>
-                <li><q>c</q></li>
-              </ol>
-              <sub><q>reverse</q></sub>
-              <ins></ins>
-            </a>
-          </var>
-          <article>
-            <header>
-              g<samp>p</samp>
-            </header>
-            <main>
-              <b>
-                cl
-                <fieldset>
-                  <ol>
-                    <li><i>22</i></li>
-                    <li>p</li>
-                  </ol>
-                </fieldset>
-              </b>
-            </main>
-            <aside>false</aside>
-          </article>
-        </template>
-      </output>
-    </htms>
   </body>
 </html>
