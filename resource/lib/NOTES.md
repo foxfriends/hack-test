@@ -15,14 +15,6 @@ Modified to automatically compile and run Roy code specified in by
 library, which had to be modified to be compatible with whatever nasty module
 system Roy was using.
 
-## `htms`
-
-HTMS interpreter.
-
-Unmodified. Stored in the folder with Level 21, since I expect it only to be
-used there, is not minified, and will likely be read when looking for the
-solution.
-
 ## `babel-standalone`
 
 Babel standalone compiler.
