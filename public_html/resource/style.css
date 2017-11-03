@@ -24,31 +24,33 @@ body {
   color: #DEDEDE;
 }
 
+footer {
+  position: fixed;
+  bottom: 0;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 1pc;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
 input {
   border: 1px solid #DEDEDE;
-  width: 32em;
+  width: calc(100vw - 25%);
   padding: 6px;
-
   font-family: 'Inconsolata', monospace;
   font-size: 28pt;
   color: #DEDEDE;
 }
 
 span {
-  position: fixed;
-  left: 1pc;
-  bottom: 1pc;
   content: 'mirage';
-  user-select: none;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
+  flex-basis: 48px;
+  text-align: center;
 }
 
-q {
-  position: fixed;
-  right: 1pc;
-  bottom: 1pc;
+q, span {
   user-select: none;
   -moz-user-select: none;
   -webkit-user-select: none;
