@@ -24,9 +24,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $list = explode(',', $line);
     if ($list[0] == $id) {
       if (intval($list[1]) < $level) {
-        $list[0] = $name;
-        $list[1] = $level;
-        $list[2] = intval($list[2]) + $attempts;
+        $list[1] = $name;
+        $list[2] = $level;
+        $list[3] = intval($list[3]) + $attempts;
         $line = join(',', $list);
       }
       $added = true;
