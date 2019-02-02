@@ -3,7 +3,7 @@ $file = fopen('lb.txt', 'r');
 $scores = fread($file, filesize('lb.txt'));
 fclose($file);
 
-// if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $level = intval($_GET['level']);
   $hash = $_GET['hash'];
 
@@ -41,8 +41,8 @@ fclose($file);
   $file = fopen('lb.txt', 'w');
   fwrite($file, $output);
   fclose($file);
-// } else {
-//   echo $scores;
-// }
+} else {
+  echo $scores;
+}
 
 ?>
