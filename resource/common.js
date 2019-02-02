@@ -127,14 +127,17 @@ var { handler, completeLevel } = (function() {
 
   function completeLevel(level, password) {
     window.sessionStorage.setItem('last-level', `${url[0]}`);
-    libs.then(() => window.location.href = `../${level}/${sha1(password)}`);
 
-    // send this victory to the leaderboard, if they have a name
-    if (userId && name) {
-      fetch(`http://cameldridge.com/hack-test/lb.php?id=${userId}&name=${name}&level=${url[0]}&hash=${sha1(password)}&attempts=${attempts}`, {
-        method: 'POST',
-      });
-    }
+    libs
+      .then(() => {
+        // send this victory to the leaderboard, if they have a name
+        if (userId && name) {
+          return fetch(`http://cameldridge.com/hack-test/lb.php?id=${userId}&name=${name}&level=${url[0]}&hash=${sha1(password)}&attempts=${attempts}`, {
+            method: 'POST',
+          });
+        }
+      })
+      .then(() => window.location.href = `../${level}/${sha1(password)}`);
 
     return true;
   }
