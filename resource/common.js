@@ -45,7 +45,10 @@ var { handler, completeLevel } = (function() {
         const nameField = document.createElement('INPUT');
         nameField.value = name;
         nameField.setAttribute('placeholder', 'Enter your name');
-        nameField.addEventListener('change', () => name = nameField.value)
+        nameField.addEventListener('change', () => {
+          name = nameField.value;
+          window.localStorage.setItem('user-name', name);
+        })
         leaderboard.appendChild(nameField);
       })
       .then(() => document.body.appendChild(leaderboard))
