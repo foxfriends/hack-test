@@ -59,7 +59,7 @@
     </p>
     <div>
       <script>
-      for(let index of Object.keys(localStorage).map(x => +x.slice(5)).sort((a, b) => a - b)) {
+      for (const index of Object.keys(localStorage).map(x => +x.slice(5)).filter(x => !isNaN(x)).sort((a, b) => a - b)) {
         if (localStorage[`test-${index}`]) {
           const hash = localStorage[`test-${index}`];
           document.write(`<a href="/hack-test/${index}/${hash}">${index}</a>`)
