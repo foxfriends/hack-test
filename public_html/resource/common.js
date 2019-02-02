@@ -11,7 +11,7 @@ var { handler, completeLevel } = (function() {
     window.localStorage.setItem('user-id', uuid());
   }
   const userId = window.localStorage.getItem('user-id');
-  let attempts = window.localStorage.getItem(`attemts-${url[0]}`) || 0;
+  let attempts = window.localStorage.getItem(`attempts-${url[0]}`) || 0;
   let name = window.localStorage.getItem('user-name');
 
   /**
@@ -109,7 +109,7 @@ var { handler, completeLevel } = (function() {
   let fails = 0;
   function handler(event) {
     if(event.key === "Enter") {
-      ++attempts;
+      window.localStorage.setItem(`attempts-${url[0]}`, ++attempts);
       const validation = validate(this.value, 'deeper');
       if(validation instanceof Promise) {
         document.body.appendChild(loader)
