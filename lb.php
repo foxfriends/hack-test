@@ -10,7 +10,10 @@ try {
 
     // ensure they actually are on a level
     $nextLevel = $level + 1;
-    if (!file_exists("$nextLevel/$hash.html")) exit;
+    if (!file_exists("$nextLevel/$hash.html")) {
+      echo "Aborted";
+      exit;
+    }
 
     $id = $_GET['id'];
     $name = $_GET['name'];
