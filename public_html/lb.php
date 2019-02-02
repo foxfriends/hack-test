@@ -42,6 +42,8 @@ try {
     $file = fopen('lb.txt', 'w');
     fwrite($file, $output);
     fclose($file);
+
+    echo "OK!"
   } else {
     echo $scores;
   }
