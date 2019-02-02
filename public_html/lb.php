@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   fwrite($file, $output);
   fclose($file);
 
-  echo "OK!"
+  echo "OK!";
 } else {
   echo $scores;
 }
