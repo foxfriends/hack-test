@@ -4,7 +4,9 @@ try {
   $scores = fread($file, filesize('lb.txt'));
   fclose($file);
 
-  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  echo $_SERVER['REQUEST_METHOD'];
+
+  if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $level = intval($_GET['level']);
     $hash = $_GET['hash'];
     $nextLevel = $level + 1;
