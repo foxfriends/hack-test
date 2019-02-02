@@ -3,7 +3,7 @@ $file = fopen('lb.txt', 'r');
 $scores = fread($file, filesize('lb.txt'));
 fclose($file);
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+// if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $level = intval($_GET['level']);
   $hash = $_GET['hash'];
 
@@ -16,24 +16,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $attempts = intval($_GET['attempts']);
 
   $lines = explode("\n", $scores);
+  $added = false;
   foreach ($lines as &$line) {
-    $list = $explode(',', $line);
-    if ($list[0] == $id && intval($list[1]) < $level) {
-      $list[0] = $name;
-      $list[1] = $level;
-      $list[2] = intval($list[2]) + $attempts;
-      $line = join(',', $list);
+    $list = explode(',', $line);
+    if ($list[0] == $id) {
+      if (intval($list[1]) < $level) {
+        $list[0] = $name;
+        $list[1] = $level;
+        $list[2] = intval($list[2]) + $attempts;
+        $line = join(',', $list);
+      }
+      $added = true;
+      break;
     }
   }
   unset($line);
 
-  $output = join("\n", $lines) + "\n";
+  if (!$added) {
+    array_push($lines, "$id,$name,$level,$attempts");
+  }
+
+  $output = join("\n", $lines);
 
   $file = fopen('lb.txt', 'w');
   fwrite($file, $output);
   fclose($file);
-} else {
-  echo $scores;
-}
+// } else {
+//   echo $scores;
+// }
 
 ?>
