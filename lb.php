@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   foreach ($lines as &$line) {
     $list = explode(',', $line);
     if ($list[0] == $id) {
-      if (intval($list[2]) <= $level) {
+      if (intval($list[2]) < $level) {
         $list[1] = $name;
         $list[2] = $level;
         $list[3] = intval($list[3]) + $attempts;
