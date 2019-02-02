@@ -1,5 +1,6 @@
 {
-  "comment": "You'll need the source for this file. It's out there somewhere.",
+  "comment": "You'll need the source for this file.",
+  "source": "https://raw.githubusercontent.com/OinkIguana/hack-test/master/public_html/20/pw.php",
   "validated": <?php
   $l = "prxbcg";
   $s = array(1, -1, -1, 1, -1, 1, -1);
