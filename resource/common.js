@@ -13,14 +13,33 @@ var { handler, completeLevel } = (function() {
   const userId = window.localStorage.getItem('user-id');
   let attempts = window.localStorage.getItem(`attemts-${url[0]}`) || 0;
   let name = window.localStorage.getItem('user-name');
-  document.addEventListener('load', () => {
+
+  /**
+   * Generate leaderboard elements
+   */
+  window.addEventListener('load', () => {
     const leaderboard = document.createElement('DIV');
     leaderboard.classList.add('leaderboard');
-    fetch('http://cameldridge.com/hack-test/lb.php')
-      .then(data => [].concat(...data.split('\n').map(row => row.split(','))))
-      .then(entries => entries
-        .map((text, element) => ((element = document.createElement('span')).contentText = text, element))
-        .forEach(element => leaderboard.appendChild(element))
+    const scores = document.createElement('DIV');
+    scores.classList.add('scores');
+    leaderboard.appendChild(scores);
+    fetch('/lb.txt')
+      .then(response => response.text())
+      .then(data => [].concat(...data.split('\n')
+        .filter(x => x)
+        .map(row => row.split(',').slice(1))
+        .map(([name, level, attempts]) => (console.log(level), [name, +level, +attempts]))
+        .sort((a, b) => b[1] - a[1] === 0 ? a[2] - b[2] : b[1] - a[1])
+        .map((row, i) => [i + 1, ...row])
+        .slice(0, 15)
+      ))
+      .then(entries => ['', 'Name', 'Level', 'Attempts', ...entries]
+        .map(text => {
+          const element = document.createElement('span');
+          element.textContent = text;
+          return element
+        })
+        .forEach(element => scores.appendChild(element))
       )
       .then(() => {
         const nameField = document.createElement('INPUT');
@@ -29,7 +48,8 @@ var { handler, completeLevel } = (function() {
         nameField.addEventListener('change', () => name = nameField.value)
         leaderboard.appendChild(nameField);
       })
-      .then(() => document.body.appendChild(leaderboard));
+      .then(() => document.body.appendChild(leaderboard))
+      .catch(error => console.error(error));
   });
 
   /**

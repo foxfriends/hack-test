@@ -21,7 +21,7 @@ body {
 
   font-family: 'Inconsolata', monospace;
   font-size: 28pt;
-  color: #DEDEDE;
+  color: #CECECE;
 }
 
 footer {
@@ -36,12 +36,13 @@ footer {
 }
 
 input {
-  border: 1px solid #DEDEDE;
+  border: 1px solid #CECECE;
   width: calc(100vw - 25%);
   padding: 6px;
   font-family: 'Inconsolata', monospace;
   font-size: 28pt;
-  color: #DEDEDE;
+  margin-right: 10%;
+  color: #CECECE;
 }
 
 span {
@@ -88,4 +89,35 @@ q, span {
   width: 8px;
   height: 8px;
   border-radius: 100%;
+}
+
+.leaderboard {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  right: 0;
+  width: 15%;
+  font-size: 12pt;
+  color: black;
+}
+
+.leaderboard input {
+  font-size: 12pt;
+  color: black;
+  width: 90%;
+}
+
+.leaderboard::before {
+  content: 'Leaderboard';
+}
+
+.scores {
+  margin: 8px 0;
+  display: grid;
+  grid-auto-rows: 20px;
+  grid-template-columns: 0.2fr 1fr 1fr 1fr;
+}
+
+.scores span {
+  text-align: left;
 }
