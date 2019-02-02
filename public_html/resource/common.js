@@ -28,7 +28,7 @@ var { handler, completeLevel } = (function() {
       .then(data => [].concat(...data.split('\n')
         .filter(x => x)
         .map(row => row.split(',').slice(1))
-        .map(([name, level, attempts]) => (console.log(level), [name, +level, +attempts]))
+        .map(([name, level, attempts]) => [name, +level, +attempts])
         .sort((a, b) => b[1] - a[1] === 0 ? a[2] - b[2] : b[1] - a[1])
         .map((row, i) => [i + 1, ...row])
         .slice(0, 15)
