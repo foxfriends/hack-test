@@ -23,7 +23,7 @@ var { handler, completeLevel } = (function() {
     const scores = document.createElement('DIV');
     scores.classList.add('scores');
     leaderboard.appendChild(scores);
-    fetch('/lb.txt')
+    fetch('http://cameldridge.com/hack-test/lb.php')
       .then(response => response.text())
       .then(data => [].concat(...data.split('\n')
         .filter(x => x)
