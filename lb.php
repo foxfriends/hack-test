@@ -7,9 +7,13 @@ try {
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $level = intval($_GET['level']);
     $hash = $_GET['hash'];
+    $nextLevel = $level + 1;
+
+    echo $level, $hash, "\n";
+    echo $nextLevel, "\n";
+    echo file_exists("$nextLevel/$hash.html");
 
     // ensure they actually are on a level
-    $nextLevel = $level + 1;
     if (!file_exists("$nextLevel/$hash.html")) {
       echo "Aborted";
       exit;
